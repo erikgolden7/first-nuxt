@@ -1,6 +1,6 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
-const nodeExternals = require('webpack-node-externals')
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   mode: 'universal',
@@ -17,7 +17,20 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700'
+      }
     ]
   },
 
@@ -29,16 +42,12 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-    'vuetify/src/stylus/main.styl'
-  ],
+  css: ['vuetify/src/stylus/main.styl'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    '@/plugins/vuetify'
-  ],
+  plugins: ['@/plugins/vuetify'],
 
   /*
   ** Nuxt.js modules
@@ -69,15 +78,15 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
       if (ctx.isServer) {
         config.externals = [
           nodeExternals({
             whitelist: [/^vuetify/]
           })
-        ]
+        ];
       }
     }
   }
-}
+};
